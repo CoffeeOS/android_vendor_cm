@@ -238,6 +238,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 DEVICE_PACKAGE_OVERLAYS += vendor/cm/overlay/common
 
+ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
+    PRODUCT_VERSION_MAINTENANCE := 1
+else
+    # 0 is ignored
+    PRODUCT_VERSION_MAINTENANCE := 0
+endif
+
 # Determine whether this build is a Developer version or Release version
 ifneq ($(TARGET_BUILD_DEVELOPER),no)
 PRODUCT_DEVELOPER_VERSION = DEVELOPER
